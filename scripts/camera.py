@@ -14,7 +14,7 @@ class CameraConfig:
     height: int = DEFAULT_CAMERA_SIZE[1]
     fps: int = 30
     tracking_width: int = 640
-    tracking_height: int = 480     # changed from 360 — matches data.py frame size
+    tracking_height: int = 480     
     contrast_alpha: float = 1.03
     contrast_beta: int = 8
     enable_tone_mapping: bool = False
@@ -63,7 +63,6 @@ def _configure_capture(cap, config):
 
 
 def open_camera(camera_index=0, config=CameraConfig()):
-    # CAP_DSHOW is Windows-only — guard so it doesn't slow down Linux/macOS
     backends = [cv2.CAP_DSHOW, cv2.CAP_ANY] if hasattr(cv2, "CAP_DSHOW") else [cv2.CAP_ANY]
     for backend in backends:
         cap = cv2.VideoCapture(camera_index, backend)
