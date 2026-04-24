@@ -162,7 +162,6 @@ def main() -> None:
                 if not success:
                     continue
 
-                # identical preprocessing to what model.py will use
                 frame = cv2.flip(frame, 1)
                 frame = cv2.resize(frame, (FRAME_WIDTH, FRAME_HEIGHT))
                 frame = cv2.convertScaleAbs(frame, alpha=CONTRAST_ALPHA, beta=CONTRAST_BETA)
@@ -182,7 +181,6 @@ def main() -> None:
                     right = normalize(hand_data.get("Right", [0.0] * 63))
                     landmarks_combined = left + right
 
-                # HUD
                 h, w = frame.shape[:2]
                 cv2.putText(frame, f"Label : {LABEL}",
                             (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
