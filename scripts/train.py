@@ -25,7 +25,6 @@ print("Gesture counts:\n", df.iloc[:, -1].value_counts())
 X_raw = df.iloc[:, :-1].values.astype(np.float32)
 y_raw = df.iloc[:, -1].values
 
-# warn if any gesture has very few samples
 counts = df.iloc[:, -1].value_counts()
 low    = counts[counts < 50]
 if not low.empty:
@@ -40,10 +39,8 @@ def augment(sample: np.ndarray) -> list:
     # Gaussian noise
     augmented.append(sample + np.random.normal(0, 0.01, sample.shape))
 
-    # Random scaling
     augmented.append(sample * random.uniform(0.9, 1.1))
 
-    # Small 2-D rotation (x, y only — skip z)
     angle   = random.uniform(-10, 10)
     rad     = np.deg2rad(angle)
     cos_a, sin_a = np.cos(rad), np.sin(rad)
@@ -115,9 +112,7 @@ print("\nClassification Report:")
 print(classification_report(y_test, y_pred, target_names=le.classes_))
 
 # ─────────────────────────────────────────
-#  CROSS-VALIDATION  (on raw data only —
-#  avoids augmented siblings leaking across
-#  folds and inflating the CV score)
+#  CROSS-VALIDATION
 # ─────────────────────────────────────────
 print("Running cross-validation on raw data (this may take a minute) ...")
 le_raw        = LabelEncoder()
