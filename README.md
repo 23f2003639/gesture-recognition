@@ -35,8 +35,7 @@ gesture-recognition/
 │   ├── camera.py            # Camera setup and preprocessing
 │   └── ui.py                # UI rendering and overlays
 └── docs/
-    ├── demo.png       # Demo preview
-    └── hand_landmarks.png   # 21-point landmark diagram
+    └── demo.png       # Demo preview
 ```
 
 ---
