@@ -195,8 +195,6 @@ python scripts/model.py
 
 ---
 
-## Author
-
 <div align="center">
 
 [![Sridevi S](https://img.shields.io/badge/Sridevi%20S-111111?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/23f2003639)
