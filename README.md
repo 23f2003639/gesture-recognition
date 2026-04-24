@@ -34,8 +34,6 @@ gesture-recognition/
 │   ├── hand_tracking.py     # MediaPipe landmark detection
 │   ├── camera.py            # Camera setup and preprocessing
 │   └── ui.py                # UI rendering and overlays
-├── data/
-│   └── gesture_data.csv     # Collected dataset
 └── docs/
     ├── demo.png       # Demo preview
     └── hand_landmarks.png   # 21-point landmark diagram
@@ -88,6 +86,48 @@ With two hands, the system generates a **126-dimensional feature vector** per fr
 * Supports gesture-based controls (word break, delete, clear)
 
 ---
+
+## Dataset
+
+The dataset is not included in this repository due to size constraints.
+
+### Data Collection
+
+You can generate your own dataset using the provided script:
+
+```bash
+python scripts/data.py
+```
+
+* Set the `LABEL` variable inside `data.py` for each gesture
+* Press **S** to capture and store samples
+* Recommended: collect at least **150 samples per gesture**
+
+---
+
+### Data Format
+
+Each sample consists of:
+
+* **126 numerical features**
+
+  * 21 hand landmarks × 3 coordinates (x, y, z) × 2 hands
+* **1 label column** representing the gesture class
+
+Example structure:
+
+| x1  | y1  | z1  | ... | x42 | y42 | z42 | label |
+| --- | --- | --- | --- | --- | --- | --- | ----- |
+| ... | ... | ... | ... | ... | ... | ... | A     |
+
+---
+
+### Notes
+
+* Landmark values are normalized coordinates from MediaPipe
+* Frames are mirrored during collection to maintain consistency
+* Both hands are captured simultaneously when visible
+
 
 ## Results
 
