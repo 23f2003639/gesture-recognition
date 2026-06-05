@@ -13,9 +13,6 @@ CONTROLS:
     M     — toggle mode
     ESC   — quit
 
-SENTENCE FORMAT:
-    Letters spell words. WORD_BREAK = space. SENTENCE_BREAK = period + capitalise next.
-    Dynamic words append directly. Output scrolls right-to-left in a single line.
 """
 
 from __future__ import annotations
