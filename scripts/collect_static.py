@@ -50,7 +50,6 @@ POST_GESTURE_PAUSE = 1.5
 frame = 200;
 
 # ── GESTURES TO COLLECT ───────────────────────────────────────────────────────
-# Format: (label, target_count)
 # Script resumes from wherever you left off (counts existing rows in CSV).
 GESTURES = [
     ("A", frame), ("B", frame), ("C", frame), ("D", frame), ("E", frame),
