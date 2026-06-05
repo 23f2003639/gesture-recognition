@@ -1,20 +1,4 @@
 """
-train_static.py — Train the static gesture classifier (production version).
-
-DATA SOURCES (merged automatically):
-  data_static.csv       — your new unified static data (letters + numbers + breaks)
-  gesture_data.csv      — your original well-performing static data (letters + breaks)
-
-Both CSVs use the same 126-column format (21 landmarks × 2 hands × 3 coords + label).
-They are merged before training so the model learns from ALL your collected data.
-
-IMPROVEMENTS OVER ORIGINAL:
-  - Richer augmentation: noise + scale + 2D rotation + mirror/hand-swap
-  - L2 regularisation (alpha=1e-4)
-  - fit ONLY on train split; test split never touched by scaler
-  - Feature extraction: adds palm normals, finger angles, tip distances
-  - Saves feature_dim and feature_version so recognise.py can self-check
-
 HOW TO RUN:
     python train_static.py
     python train_static.py --skip-cv          # faster, skip 5-fold CV
