@@ -1,25 +1,8 @@
 """
-train_dynamic.py — Train the dynamic (sequence) gesture model.
-
-Architecture: lightweight temporal CNN → Dense  (TensorFlow/Keras)
-Optimized for small datasets (you currently have only 200 sequences for
-2 gestures — HELLO and HEY). This version adds stronger regularisation
-and data augmentation to compensate.
-
-TARGET DATASET SIZE FOR PRODUCTION:
-  ≥ 150 samples per gesture  (300+ recommended)
-  ≥ 5 different gesture classes
-  Collected from multiple signers and camera angles if possible.
-
 HOW TO RUN:
     python train_dynamic.py
     python train_dynamic.py --epochs 80   # train longer
     python train_dynamic.py --user-id alice
-
-OUTPUTS:
-    dynamic_model.tflite  — fast CPU inference model (used by recognise.py)
-    dynamic_model.pkl     — metadata bundle (scaler, label_encoder, gate params)
-    dynamic_model.keras   — Keras fallback
 """
 
 import argparse
