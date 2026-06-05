@@ -1,33 +1,3 @@
-"""
-Per-user data and model paths.
-
-Folder layout
-─────────────
-Base data (no user):
-  data_static/
-    <LABEL>/
-      data.csv          ← all rows for this label
-  data_dynamic/
-    <LABEL>/
-      data.csv
-
-Per-user data:
-  user_profiles/<user_id>/
-    static/
-      <LABEL>/
-        data.csv
-    dynamic/
-      <LABEL>/
-        data.csv
-    static_model.pkl
-    dynamic_model.pkl
-    dynamic_model.tflite
-    dynamic_model.keras
-
-The training scripts merge base + user folders into one DataFrame,
-so the model learns from everything.
-"""
-
 from __future__ import annotations
 
 import csv
