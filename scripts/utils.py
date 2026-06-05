@@ -1,10 +1,3 @@
-"""
-utils.py — Shared constants and landmark normalization.
-
-Both static (per-frame) and dynamic (sequence) pipelines use the
-same normalization so train/inference features are identical.
-"""
-
 SEQUENCE_LENGTH = 30   # frames per dynamic gesture sample  (1 s @ 30 fps)
 LANDMARK_DIM    = 126  # 21 landmarks × 2 hands × 3 coords
 
