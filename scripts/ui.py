@@ -1,15 +1,3 @@
-"""
-ui.py — Unified overlay renderer for the gesture recognition system.
-
-Design principles:
-  - Dark, cinematographic aesthetic — works well against any background.
-  - Smooth exponential animations (no jarring jumps).
-  - Minimal clutter: only show what's relevant RIGHT NOW.
-  - Mode-aware: static (letter-by-letter) vs dynamic (word-level) have
-    distinct but visually consistent layouts.
-  - Production-safe: all drawing is guarded; no crash on empty strings.
-"""
-
 from __future__ import annotations
 import math
 import time
@@ -20,7 +8,7 @@ import cv2
 import numpy as np
 
 # ─────────────────────────────────────────────────────────────────────────────
-#  DESIGN TOKENS  (single source of truth for all colours)
+#  DESIGN TOKENS 
 # ─────────────────────────────────────────────────────────────────────────────
 
 FONT = cv2.FONT_HERSHEY_SIMPLEX
@@ -482,22 +470,6 @@ def draw_recognition_overlay(
     has_hand: bool = True,
     hold_progress: float = 0.0,  # dynamic only: 0→1 hold fill
 ) -> None:
-    """
-    Master overlay function — called every frame in both modes.
-
-    Layout (dark, cinematic):
-      ┌──────────────────────────────────────────┐
-      │ MODE BADGE (tl)       ● STATUS STRIP (tr)│
-      │                                           │
-      │           NOTICE TOAST (tc)               │
-      │                                           │
-      │       [HAND CORNER GUIDES]                │
-      │                 [CALLOUT CARD]            │
-      │         (HOLD ARC — dynamic only)         │
-      │                                           │
-      │ ACCUMULATED TEXT             HINTS (br)   │
-      └──────────────────────────────────────────┘
-    """
     state.step(
         frame=frame,
         fps=fps,
