@@ -224,33 +224,6 @@ Training merges base data + user data so the personalised model learns from ever
 
 ---
 
-## Model Details
-
-### Static MLP
-
-| Parameter | Value |
-|---|---|
-| Architecture | 256 → 128 → 64 (ReLU) |
-| Regularisation | L2 α = 1e-4 |
-| Optimiser | Adam lr = 0.001 |
-| Max iterations | 1500 (early stopping) |
-| Confidence threshold | ≥ 70%, margin ≥ 5% |
-| Hold frames to commit | 20 consecutive frames |
-
-### Dynamic Temporal CNN
-
-| Parameter | Value |
-|---|---|
-| Input shape | (30 frames, feature_dim) |
-| Layers | Conv1D(48) → SepConv1D(64) → SepConv1D(96) → Dense(96) |
-| Pooling | GlobalAvg + GlobalMax concatenated |
-| Regularisation | SpatialDropout1D(0.2), Dropout(0.35), L2 |
-| Optimiser | Adam lr = 0.001 with ReduceLROnPlateau |
-| Confidence threshold | ≥ 72%, margin ≥ 8% |
-| Hold frames to commit | 8 consecutive frames (cooldown: 20 frames) |
-
----
-
 <div align="center">
 
 [![Sridevi S](https://img.shields.io/badge/Sridevi%20S-111111?style=for-the-badge&logo=github&logoColor=white)](https://github.com/23f2003639)
